@@ -1,0 +1,531 @@
+// bower:scss
+// endbower
+
+body, html {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/***
+GM NAVBAR
+***/
+
+.gm-navbar {
+  display: flex;
+  justify-content: space-around;
+  height: 65px;
+  padding: 0 8%;
+  position: fixed;
+  background: #fff;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  .logo {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+  }
+  .lang-mobile {
+    display: none;
+    position: absolute;
+    right: 25px;
+    padding: 5px;
+    border: 1px solid cadetblue;
+    border-radius: 7px;
+    cursor: pointer;
+    color: cadetblue;
+  }
+  .links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .link {
+      padding: 50px 35px;
+      white-space: nowrap;
+      color: dimgrey;
+      cursor: pointer;
+    }
+    .link.active, .link:hover {
+      color: cadetblue;
+      font-weight: bold;
+    }
+    .link.lang {
+      color: cadetblue;
+      padding: 5px 0 5px 25px;
+      border-left: 1.5px solid lightgrey;
+    }
+  }
+}
+
+@media only screen and (max-width: 1075px) {
+  .gm-navbar {
+    height: 100px;
+    flex-direction: column;
+    align-items: center;
+    .logo {
+      justify-content: center;
+      padding: 10px 0 5px;
+    }
+    .links {
+      padding: 0;
+      .link {
+        padding: 10px 35px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .gm-navbar {
+    height: 70px;
+    .links {
+      display: none;
+    }
+    .lang-mobile {
+      display: block;
+    }
+  }
+}
+
+/***
+COMMON
+***/
+
+.cover-dark-wrap {
+  background: rgba(0, 0, 0, .4);
+}
+
+.cover {
+  height: 100vh;
+  min-height: 500px;
+  padding-top: 175px;
+  display: flex;
+  justify-content: center;
+
+  .cover-text {
+    max-height: 200px;
+    text-align: center;
+
+    .title {
+      font-weight: bold;
+      font-size: 55px;
+      margin-bottom: 35px;
+    }
+    .text {
+      font-size: 32px;
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .cover .cover-text {
+    .title {
+      font-size: 45px;
+    }
+    .text {
+      font-size: 26px;
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .cover .cover-text {
+    .title {
+      font-size: 37px;
+    }
+    .text {
+      font-size: 20px;
+    }
+  }
+}
+
+/***
+HOME
+***/
+
+.cover-home {
+  background: linear-gradient( rgba(0, 0, 0, .25), rgba(0, 0, 0, .25) ), url('../images/background-things-blue.jpg');
+  background-position: center 10%;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+.home-section {
+  min-height: 500px;
+
+  .title {
+    font-family: 'Lobster', sans-serif;
+    font-size: 45px;
+    text-align: center;
+    padding-top: 40px;
+    color: #696969;
+  }
+}
+
+.nosotros-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 380px;
+
+  .title {
+    padding: 25px 0 10px;
+  }
+  .text {
+    max-width: 45vw;
+    text-align: justify;
+    padding: 50px 20px 25px;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 865px) {
+  .nosotros-section .text {
+    max-width: 75vw;
+  }
+}
+
+.servicios-section {
+  background-color: rgba(179, 191, 231, 0.3);
+
+  .servicios-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 35px;
+    .box {
+      opacity: 0;
+      -webkit-transition: all 2s ease;
+      -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+      -o-transition: all 2s ease;
+      transition: all 2s ease;
+      width: 250px;
+      height: 300px;
+      background: pink;
+      margin: 15px 20px;
+      position: relative;
+      -webkit-box-shadow: 3px 4px 17px 1px rgba(0,0,0,0.62);
+      -moz-box-shadow: 3px 4px 17px 1px rgba(0,0,0,0.62);
+      box-shadow: 3px 4px 17px 1px rgba(0,0,0,0.62);
+      .text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, .6);
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .box.active {
+      opacity: 1;
+    }
+    .box.mobile {
+      background: url('../images/mobile-sample.png');
+      background-size: auto 250px;
+      background-position: center;
+    }
+    .box.web {
+      background: url('../images/web-sample.jpg');
+      background-size: auto 250px;
+      background-position: center 75%;
+    }
+    .box.arch {
+      background: url('../images/arch-sample.jpg');
+      background-size: auto 250px;
+      background-position: center 75%;
+    }
+    .box.design {
+      background: url('../images/ux-sample.jpg') no-repeat;
+      background-size: 250px auto;
+      background-position: 55% 75%;
+    }
+  }
+}
+
+.productos-section {
+
+  .productos-boxes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 35px 25px;
+
+    .producto-box {
+      opacity: 0;
+      -webkit-transition: all 1.5s ease;
+      -moz-transition: all 1.5s ease;
+      -ms-transition: all 1.5s ease;
+      -o-transition: all 1.5s ease;
+      transition: all 1.5s ease;
+      width: 275px;
+      height: 350px;
+      margin: 15px 20px;
+      background: #eee;
+      position: relative;
+
+      .name {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        text-align: right;
+        padding: 5px;
+        background: rgba(0, 0, 0, .5);
+        color: white;
+      }
+    }
+    .producto-box.active {
+      opacity: 1;
+    }
+    .producto-box.global-ecommerce {
+      background: url('../images/ecommerce-sample.png');
+      background-size: auto 325px;
+      background-position: 45% center;
+    }
+    .producto-box.global-reports {
+      background: url('../images/metrics-sample.png');
+      background-size: auto 350px;
+      background-position: center;
+    }
+    .producto-box.global-api {
+      background: url('../images/api-manager-sample.jpg');
+      background-size: auto 350px;
+      background-position: center;
+    }
+    .producto-box.global-esb {
+      background: url('../images/esb-sample.jpg') no-repeat;
+      background-size: auto 275px;
+      background-position: center;
+    }
+  }
+}
+
+.global-meaning-argentina {
+  height: 125px;
+  background: url('../images/buenos-aires-background.jpg');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+
+  .text {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .6);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+  }
+}
+
+.contacto-section {
+  display: flex;
+  align-items: center;
+  background-color: #41484D;
+
+  .mapa {
+    flex: 1.5;
+    background: url('../images/map.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+  }
+  .contact-info-form {
+    flex: 1;
+    padding: 0 75px;
+
+    .contact-info {
+      color: white;
+      margin-bottom: 25px;
+
+      .info {
+        font-size: 17px;
+        margin-bottom: 20px;
+        i {
+          font-size: 20px;
+          margin-right: 10px;
+        }
+      }
+    }
+    .contact-form {
+      form {
+        display: flex;
+        flex-direction: column;
+
+        input, textarea {
+          margin: 5px 0;
+          background: rgba(255, 255, 255, .8);
+          padding: 5px 10px;
+          border: none;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          font-family: 'Roboto', sans-serif;
+          font-size: 12px;
+        }
+        input {
+          height: 30px;
+        }
+        .gm-btn {
+          margin-top: 10px;
+          width: 100px;
+          padding: 7px;
+          align-self: flex-end;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          border: 1px solid white;
+          background: rgba(255, 255, 255, .3);
+          color: white;
+          font-size: 17px;
+          cursor: pointer;
+        }
+        .gm-btn:hover {
+          background: rgba(255, 255, 255, .8);
+          color: dimgrey;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 935px) {
+  .contacto-section {
+    display: block;
+    .contact-info-form {
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .contact-form {
+      }
+    }
+  }
+}
+@media only screen and (max-width: 715px) {
+  .global-meaning-argentina {
+    .text {
+      font-size: 5vw;
+    }
+  }
+}
+@media only screen and (max-width: 575px) {
+  .contacto-section {
+    display: block;
+    .contact-info-form {
+      padding: 0 5%;
+    }
+  }
+}
+
+.gm-footer {
+  background: #080808;
+  height: 50px;
+  padding: 0 5%;
+
+  .links {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .link {
+      color: white;
+      padding: 0 35px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .link:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .gm-footer {
+    display: none;
+  }
+}
+
+// Redirect Page
+
+.redirect-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: url('http://www.daoulaba.com/i/2017/05/city-night-wallpapers-background.jpg');
+  background-position: center left;
+  background-size: cover;
+
+  .logo-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 7%;
+  }
+
+  .logo {
+    font-size: 40px;
+    padding: 50px 0;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+
+  .double-bounce1, .double-bounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+
+  .double-bounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+
+  @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+  }
+
+  @keyframes sk-bounce {
+    0%, 100% {
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+  }
+}

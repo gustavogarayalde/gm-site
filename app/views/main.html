@@ -1,0 +1,123 @@
+<div class="gm-navbar">
+  <div class="logo">
+    <span>G M</span>
+  </div>
+  <div class="links">
+    <div class="link"
+         ng-click="goToSection('inicio')"
+         ng-class="visibleSection == 'inicio' ? 'active' : null">
+      {{'NAV_HOME' | translate}}
+    </div>
+    <div class="link"
+         ng-click="goToSection('nosotros')"
+         ng-class="visibleSection == 'nosotros' ? 'active' : null">
+      {{'NAV_ABOUT_US' | translate}}
+    </div>
+    <div class="link"
+         ng-click="goToSection('servicios')"
+         ng-class="visibleSection == 'servicios' ? 'active' : null">
+      {{'NAV_SERVICES' | translate}}
+    </div>
+    <div class="link"
+         ng-click="goToSection('productos')"
+         ng-class="visibleSection == 'productos' ? 'active' : null">
+      {{'NAV_PRODUCTS' | translate}}
+    </div>
+    <div class="link"
+         ng-click="goToSection('contacto')"
+         ng-class="visibleSection == 'contacto' ? 'active' : null">
+      {{'NAV_CONTACT' | translate}}
+    </div>
+    <div class="link lang" ng-click="toggleLanguage()">
+      {{language == 'en' ? 'Español' : 'English'}}
+    </div>
+  </div>
+  <div class="lang-mobile" ng-click="toggleLanguage()">
+    {{language == 'en' ? 'Es' : 'En'}}
+  </div>
+</div>
+
+<div class="cover cover-home" id="section-inicio">
+  <div class="cover-text">
+    <div class="title">GLOBAL MEANING</div>
+    <div class="text">BUENOS AIRES - ARGENTINA</div>
+  </div>
+</div>
+
+<div class="home-section nosotros-section" id="section-nosotros">
+  <div class="title">{{'NAV_ABOUT_US' | translate}}</div>
+  <div class="text">
+    {{'COVER_TEXT' | translate}}
+    <span ng-show="language == 'es'" id="animated-cover-text-spanish"></span>
+    <span ng-show="language == 'en'" id="animated-cover-text-english"></span>
+  </div>
+</div>
+
+<div class="home-section servicios-section" id="section-servicios">
+  <div class="title">{{'NAV_SERVICES' | translate}}</div>
+  <div class="servicios-boxes">
+    <div class="box mobile">
+      <div class="text">{{'SERVICE_MOBILE_DEVELOPMENT' | translate}}</div>
+    </div>
+    <div class="box web">
+      <div class="text">{{'SERVICE_WEB_DEVELOPMENT' | translate}}</div>
+    </div>
+    <div class="box arch">
+      <div class="text">{{'SERVICE_ARCHITECTURE_DESIGN' | translate}}</div>
+    </div>
+    <div class="box design">
+      <div class="text">{{'SERVICE_UX' | translate}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="home-section productos-section" id="section-productos">
+  <div class="title">{{'NAV_PRODUCTS' | translate}}</div>
+  <div class="productos-boxes">
+    <div class="producto-box global-reports">
+      <div class="name">Global Reports</div>
+    </div>
+    <div class="producto-box global-ecommerce">
+      <div class="name">Global E-Commerce</div>
+    </div>
+    <div class="producto-box global-api">
+      <div class="name">Global API Manager</div>
+    </div>
+    <div class="producto-box global-esb">
+      <div class="name">Global Enterprise Service Bus</div>
+    </div>
+  </div>
+</div>
+
+<div class="global-meaning-argentina" id="section-contacto">
+  <div class="text">
+    CONTACTO
+  </div>
+</div>
+
+<div class="home-section contacto-section">
+  <div class="mapa"></div>
+  <div class="contact-info-form">
+    <div class="contact-info">
+      <div class="info direccion"><i class="fa fa-map-marker"></i> Carlos Pellegrini 465 (CABA)</div>
+      <div class="info mail"><i class="fa fa-envelope-o"></i>info@globalmeaning.com</div>
+    </div>
+    <div class="contact-form">
+      <form>
+        <input type="text"  ng-model="contactForm.subject" placeholder="{{'FORM_SUBJECT' | translate}}">
+        <textarea cols="30" ng-model="contactForm.body" rows="10" placeholder="{{'FORM_MESSAGE' | translate}}"></textarea>
+        <button type="button" class="gm-btn btn-send" ng-click="sendContactMail()">Enviar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="gm-footer">
+  <div class="links">
+    <div class="link" ng-click="goToSection('inicio')">{{'NAV_HOME' | translate}}</div>
+    <div class="link" ng-click="goToSection('nosotros')">{{'NAV_ABOUT_US' | translate}}</div>
+    <div class="link" ng-click="goToSection('servicios')">{{'NAV_SERVICES' | translate}}</div>
+    <div class="link" ng-click="goToSection('productos')">{{'NAV_PRODUCTS' | translate}}</div>
+    <div class="link" ng-click="goToSection('contacto')">{{'NAV_CONTACT' | translate}}</div>
+  </div>
+</div>
